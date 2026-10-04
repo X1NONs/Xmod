@@ -13,6 +13,7 @@
 #include <sys/stat.h>
 
 #include "backend.h"
+#include "plugin_loader.h"
 
 #define CHUNK_SIZE (1024 * 1024)
 #define MAX_VALUE  (64 * 1024)
@@ -502,6 +503,16 @@ int main(int argc, char **argv)
 
     if (strcmp(cmd, "caps") == 0) {
         return cmd_caps();
+    }
+
+    if (strcmp(cmd, "plugin") == 0) {
+        if (argc < 3) {
+            fprintf(stderr, "Usage: xmod-core plugin list | <name> [args]\n");
+            return EXIT_FAILURE;
+        }
+        if (strcmp(argv[2], "list") == 0)
+            return plugin_list();
+        return plugin_run(argv[2], argc - 2, argv + 2);
     }
 
     if (strcmp(cmd, "read") == 0) {
