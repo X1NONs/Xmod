@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <xmod/uapi.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
