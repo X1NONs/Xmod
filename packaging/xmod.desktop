@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Xmod
+Comment=Linux Memory Analysis & Exploit Framework
+# pkexec handles the graphical root password prompt natively
+Exec=pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY /usr/local/bin/Xmod
+Icon=utilities-system-monitor
+Terminal=false
+Categories=System;Security;Development;
+Keywords=memory;kernel;exploit;reverse;engineering;
